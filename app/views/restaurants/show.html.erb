@@ -1,3 +1,34 @@
 <h1><%= @restaurant.name %></h1>
+Address: <%= @restaurant.address %><br>
+Phone: <%= @restaurant.phone %>
 
-<p>Here are all the reviews:</p>
+
+<h2>Reviews</h2>
+<% @restaurant.reviews.each do |review| %>
+	<p>
+		<strong>Reviewer:</strong>
+		<%= review.user_id %>
+	</p>
+
+	<p>
+		<strong>Review:</strong>
+		<%= review.comment %>
+	</p>
+<% end %>
+
+<h2>Add a review</h2>
+<%= form_for([@restaurant, @restaurant.reviews.build]) do |f| %>
+	<p>
+		<%= f.label :user %><br>
+		<%= f.select :user %>
+	</p>
+	<p>
+		<%= f.label :comment %><br>
+		<%= f.text_area :comment %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+<%= link_to 'Back', root_path %>

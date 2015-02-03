@@ -3,9 +3,8 @@ class CreateReviews < ActiveRecord::Migration
     create_table :reviews do |t|
       t.string :comment
       t.integer :rating
-      
-      t.references :restaurants, index: true
-      t.references :users, index: true
+      t.integer :user_id
+      t.integer :restaurant_id
 
       t.timestamps null: false
     end
