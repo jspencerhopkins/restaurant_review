@@ -7,7 +7,7 @@ Phone: <%= @restaurant.phone %>
 <% @restaurant.reviews.each do |review| %>
 	<p>
 		<strong>Reviewer:</strong>
-		<%= review.user_id %>
+		<%= review.reviewer %>
 	</p>
 
 	<p>
@@ -19,8 +19,8 @@ Phone: <%= @restaurant.phone %>
 <h2>Add a review</h2>
 <%= form_for([@restaurant, @restaurant.reviews.build]) do |f| %>
 	<p>
- 		<%= f.label :user_id %><br>
-		<%= f.collection_select (:user_id, User.all, :id, :name) %>
+ 		<%= f.label :reviewer%><br>
+		<%= f.text_field :reviewer %>
 	</p>
 	<p>
 		<%= f.label :comment %><br>
