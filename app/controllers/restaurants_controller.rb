@@ -16,10 +16,8 @@ class RestaurantsController < ApplicationController
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
+		@review = Review.new
+		@users = User.all
 	end
-
-	# def create
-	# 	@user = User.create(params[:user])
-	# end
 
 end

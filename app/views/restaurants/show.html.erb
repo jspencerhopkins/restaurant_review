@@ -1,3 +1,17 @@
 <h1><%= @restaurant.name %></h1>
+Address: <%= @restaurant.address %><br>
+Phone: <%= @restaurant.phone %>
 
-<p>Here are all the reviews:</p>
+<br>
+<br>
+
+<h2>Reviews</h2>
+<%= render @restaurant.reviews %>
+
+
+<br>
+
+<h2>Add a review</h2>
+<%= render 'reviews/form' %>
+
+<%= link_to 'Back', root_path %>
