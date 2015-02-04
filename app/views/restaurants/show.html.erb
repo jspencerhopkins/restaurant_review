@@ -19,8 +19,8 @@ Phone: <%= @restaurant.phone %>
 <h2>Add a review</h2>
 <%= form_for([@restaurant, @restaurant.reviews.build]) do |f| %>
 	<p>
-		<%= f.label :user %><br>
-		<%= f.select :user %>
+ 		<%= f.label :user_id %><br>
+		<%= f.collection_select (:user_id, User.all, :id, :name) %>
 	</p>
 	<p>
 		<%= f.label :comment %><br>
