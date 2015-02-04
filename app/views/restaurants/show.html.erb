@@ -2,33 +2,16 @@
 Address: <%= @restaurant.address %><br>
 Phone: <%= @restaurant.phone %>
 
+<br>
+<br>
 
 <h2>Reviews</h2>
-<% @restaurant.reviews.each do |review| %>
-	<p>
-		<strong>Reviewer:</strong>
-		<%= review.reviewer %>
-	</p>
+<%= render @restaurant.reviews %>
 
-	<p>
-		<strong>Review:</strong>
-		<%= review.comment %>
-	</p>
-<% end %>
+<br>
+<br>
 
 <h2>Add a review</h2>
-<%= form_for([@restaurant, @restaurant.reviews.build]) do |f| %>
-	<p>
- 		<%= f.label :reviewer%><br>
-		<%= f.text_field :reviewer %>
-	</p>
-	<p>
-		<%= f.label :comment %><br>
-		<%= f.text_area :comment %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+<%= render 'reviews/form' %>
 
 <%= link_to 'Back', root_path %>
