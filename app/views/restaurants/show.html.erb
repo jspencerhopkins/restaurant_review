@@ -4,14 +4,17 @@ Phone: <%= @restaurant.phone %>
 
 <br>
 <br>
-
+<section>
 <h2>Reviews</h2>
-<%= render @restaurant.reviews %>
+</section>
+<%= render @restaurant.reviews.order(created_at: :desc) %>
 
 
 <br>
 
-<%= render 'reviews/form' %>
+<section>
+	<%= render 'reviews/form' %>
+</section>
 
 <br>
 

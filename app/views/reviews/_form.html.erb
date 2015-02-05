@@ -13,6 +13,11 @@
 			<%= f.label :rating %>
 			<%= f.select :rating, options_for_select([["1 (lowest)", 1], 2,3,4,5]) %>
 		<p>
+			<%= f.label :recommend, "Would You Recommend?" %>
+			<%= f.check_box :recommend %>
+		</p>
+
+		</p>
 			<%= f.submit %>
 		</p>
 

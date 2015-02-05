@@ -1,9 +1,15 @@
 
-<div>
-	<p>
+<article>
+	<p <%= 'class=recommended' if review.recommend? %>>
 		<strong>Rating:</strong>
 		<%= review.rating %>
 	</p>
+	
+	<% if review.recommend? %>
+	<p>
+		RECOMMENDED!
+	</p>
+	<% end %>
 
 	<p>
 		<strong>Comment:</strong>
@@ -11,8 +17,8 @@
 	</p>
 
 	<p>
-		<strong>User:</strong>
-		<%= review.user.name %>
+		<strong>Post by:</strong>
+		<%= review.user.name %> at <%= time_ago_in_words review.created_at %> ago
 	</p>
 
 	<p>
@@ -20,4 +26,4 @@
 	               method: :delete,
 	               data: { confirm: 'Are you sure?' } %>
 	</p>
-</div>
+</article>
