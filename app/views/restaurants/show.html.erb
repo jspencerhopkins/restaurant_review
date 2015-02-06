@@ -3,21 +3,22 @@ Address: <%= @restaurant.address %><br>
 Phone: <%= @restaurant.phone %>
 
 <br>
-
 <br>
-
 <br>
 
 <section>
-<h2>Reviews</h2>
+	<h2>Reviews</h2>
+		<%= render @restaurant.reviews.order(created_at: :desc) %>
 </section>
-<%= render @restaurant.reviews.order(created_at: :desc) %>
-
 
 <br>
 
 <section>
-	<%= render 'reviews/form' %>
+	<% if session[:user_id] %>
+		<%= render 'reviews/form' %>
+	<% else %>
+		<p><%= link_to 'Log in here', login_path %> to leave a review </p>
+	<% end %>
 </section>
 
 <br>

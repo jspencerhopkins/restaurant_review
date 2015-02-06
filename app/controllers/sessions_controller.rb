@@ -13,7 +13,11 @@ class SessionsController < ApplicationController
 			flash[:alert] = "You type like a dumbass"
 			redirect_to login_url
 		end
+	end
 
+	def destroy
+		session[:user_id] = nil
+		redirect_to root_url, notice: "Get the fuck out!"
 	end
 
 end
