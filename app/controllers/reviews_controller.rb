@@ -3,8 +3,12 @@ class ReviewsController < ApplicationController
 	def create
 		@restaurant = Restaurant.find(params[:restaurant_id])
 		@review = @restaurant.reviews.create(params_including_user_id)
+		respond_to do |format|
+			format.html {redirect_to @restaurant}
+			format.js {}
+		end
 		flash[:notice] = "Woohoo new review!"
-		redirect_to @restaurant
+		
 	end	
 
 	 def destroy

@@ -6,7 +6,7 @@ Phone: <%= @restaurant.phone %>
 <br>
 <br>
 
-<section>
+<section id="review-section">
 	<h2>Reviews</h2>
 		<%= render @restaurant.reviews.order(created_at: :desc) %>
 </section>
@@ -15,6 +15,7 @@ Phone: <%= @restaurant.phone %>
 
 <section>
 	<% if session[:user_id] %>
+		<%= link_to 'Add a Review', @restaurant, id: 'new_review_link'%>
 		<%= render 'reviews/form' %>
 	<% else %>
 		<p><%= link_to 'Log in here', login_path %> to leave a review </p>
@@ -24,3 +25,13 @@ Phone: <%= @restaurant.phone %>
 <br>
 
 <%= link_to 'Back', root_path %>
+
+<script>
+	$('#new_review').hide();
+	$("#new_review_link").click(function(event){
+		event.preventDefault();
+		$("#new_review").slideDown();
+	});
+
+
+</script>
