@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 			format.html {redirect_to @restaurant}
 			format.js {}
 		end
-		flash[:notice] = "Woohoo new review!"
+		#flash[:notice] = "Woohoo new review!"
 		
 	end	
 
